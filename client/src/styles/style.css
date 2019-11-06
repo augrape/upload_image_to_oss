@@ -1,0 +1,53 @@
+html {
+    height: 800px;
+    width: 600px;
+    margin: auto;
+    font-size: 10px;
+    background-color: #00539F;
+    font-family: 'Open Sans', letter-spacing;
+}
+
+body {
+    /* 5像素 实线 黑色*/
+    height: 80%;
+    width: 85%;
+    border: 5px solid black;
+    margin: 0 auto;
+    background-color: #FF9500;
+    padding: 0 20px 20px 20px;
+}
+
+h1 {
+    font-size: 60px;
+    margin: 5px auto;
+    text-align: center;
+    color: #00539F;
+    text-shadow: 3px 3px 1px black;
+}
+
+div {
+    margin: 20px auto;
+}
+
+span label {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+img {
+    /*内联元素不具备块级元素的一些功能 display: block 给予块级行为*/
+    height: 230px;
+    width: 230px;
+    display: block;
+    margin: auto;
+}
+
+p, li {
+    font-size: 16px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+/*padding内边距 border边框 margin外边距*/
+/*width宽度 background-color color text-shadow阴影 display元素显示模式*/
