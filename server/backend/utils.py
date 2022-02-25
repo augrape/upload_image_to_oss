@@ -23,8 +23,7 @@ def to_oss(image_path):
 
 def sts_token():
     REGINID = 'cn-hangzhou'
-    ENDPOINT = 'sts.cn-hangzhou.aliyuncs.com'
-    region_provider.add_endpoint('Sts', REGINID, ENDPOINT)
+    region_provider.add_endpoint('Sts', REGINID, 'sts.cn-hangzhou.aliyuncs.com')
     clt = client.AcsClient('LTAI4FkADLN4QNaZTfHYKFUe',
                            'sYIVOqB6N89QetONUCgE8iMki5bK5j',
                            REGINID)

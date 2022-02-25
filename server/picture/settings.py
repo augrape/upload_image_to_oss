@@ -125,14 +125,20 @@ USE_L10N = True
 USE_TZ = True
 
 # OSS settings
-OSS_AK = 'LTAI4FqzfxhkbTiDMTDts2TH'
-OSS_KS = 'IjtjfX93H4sMWcedRajnUcb1CdIAg6'
-ENDPOINT_IN = 'oss-cn-hangzhou-internal.aliyuncs.com'
-ENDPOINT_OUT = 'oss-cn-hangzhou.aliyuncs.com'
-OSS_URL = 'http://heijinzi.oss-cn-hangzhou.aliyuncs.com'
-BUCKET_NAME = 'heijinzi'
+OSS_AK = ''
+OSS_KS = ''
+ENDPOINT_IN = ''
+ENDPOINT_OUT = ''
+OSS_URL = ''
+BUCKET_NAME = ''
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass
