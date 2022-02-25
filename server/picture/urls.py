@@ -18,6 +18,6 @@ from django.urls import path, include
 from backend import hello
 
 urlpatterns = [
-    path('', hello, name='hello'),
-    path('image/', include('backend.vimage.urls')),
+    path(r'', hello, name='hello'),
+    path(r'image/', include('backend.vimage.urls')),
 ]

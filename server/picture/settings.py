@@ -75,8 +75,9 @@ CORS_ORIGIN_ALLOW = True
 
 CORS_ALLOW_CREDENTIALS = True
 
+# 允许所有主机
 CORS_ALLOW_HEADERS = (
-    "*", # 允许所有主机
+    "*",
 )
 
 # Database

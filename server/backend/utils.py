@@ -1,5 +1,7 @@
-import json, oss2, uuid
+import json
+import uuid
 from django.http import JsonResponse
+import oss2
 from aliyunsdkcore import client
 from aliyunsdkcore.profile import region_provider
 from aliyunsdksts.request.v20150401 import AssumeRoleRequest
@@ -22,9 +24,7 @@ def to_oss(image_path):
 def sts_token():
     REGINID = 'cn-hangzhou'
     ENDPOINT = 'sts.cn-hangzhou.aliyuncs.com'
-    region_provider.add_endpoint('Sts',
-                                 REGINID,
-                                 ENDPOINT)
+    region_provider.add_endpoint('Sts', REGINID, ENDPOINT)
     clt = client.AcsClient('LTAI4FkADLN4QNaZTfHYKFUe',
                            'sYIVOqB6N89QetONUCgE8iMki5bK5j',
                            REGINID)
@@ -33,7 +33,7 @@ def sts_token():
     req.set_RoleSessionName('ceshi')
     body = clt.do_action_with_exception(req)
     response = json.loads(body)
-    print(response)
+
     token = dict(status='200',
                  AccessKeyId=response['Credentials']['AccessKeyId'],
                  AccessKeySecret=response['Credentials']['AccessKeySecret'],
@@ -44,11 +44,11 @@ def sts_token():
 
 
 class HttpCode(object):
-    Ok=200
-    Error=400
-    UnknownVerification=401
-    MethodError=405
-    ServerError=500
+    Ok = 200
+    Error = 400
+    UnknownVerification = 401
+    MethodError = 405
+    ServerError = 500
 
 
 def result(code=HttpCode.Ok, message="", data=None, kwargs=None):
@@ -61,5 +61,6 @@ def result(code=HttpCode.Ok, message="", data=None, kwargs=None):
     if kwargs and isinstance(kwargs, dict) and kwargs.keys():
         __dict.update(kwargs)
     response = JsonResponse(__dict)
-    response['Access-Control-Allow-Origin'] = '*'  # 解决一个跨站问题，有好的方式欢迎留言!
+    # 解决一个跨站问题，有好的方式欢迎留言!
+    response['Access-Control-Allow-Origin'] = '*'
     return response
